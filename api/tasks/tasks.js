@@ -1,11 +1,11 @@
-import { Mongo } from 'meteor/mongo';
+import { Mongo } from "meteor/mongo";
 
-export const Tasks = new Mongo.Collection('tasks');
+export const Tasks = new Mongo.Collection("tasks");
 
 const schema = {
   _id: String,
-  description: String,
-  done: Boolean,
+  text: String,
+  checked: Boolean,
   createdAt: Date,
   userId: String,
 };

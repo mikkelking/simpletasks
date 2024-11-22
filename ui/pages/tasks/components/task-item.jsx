@@ -5,18 +5,18 @@ import {
   HStack,
   Stack,
   Tooltip,
-} from '@chakra-ui/react';
-import React, { memo } from 'react';
-import { useTaskItem } from '../hooks/use-task-item';
+} from "@chakra-ui/react";
+import React, { memo } from "react";
+import { useTaskItem } from "../hooks/use-task-item";
 
 const formatDate = (date) => {
-  return new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
     hour12: false,
   }).format(date);
 };
@@ -29,7 +29,7 @@ export const TaskItem = memo(({ task }) => {
       <Box w="80%">
         <Checkbox
           colorScheme="green"
-          isChecked={task.done}
+          isChecked={task.checked}
           onChange={() => onMarkAsDone(task._id)}
         >
           <Tooltip
@@ -39,9 +39,9 @@ export const TaskItem = memo(({ task }) => {
             openDelay={600}
           >
             <span
-              style={{ textDecoration: task.done ? 'line-through' : 'none' }}
+              style={{ textDecoration: task.checked ? "line-through" : "none" }}
             >
-              {task.description}
+              {task.text}
             </span>
           </Tooltip>
         </Checkbox>
